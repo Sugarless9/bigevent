@@ -42,7 +42,7 @@ $(function () {
                 return layer.msg(res.data.message)
             }
             localStorage.setItem(`token`, res.data.token)
-            layer.msg(res.data.message, function () {
+            layer.msg(res.data.message, { time: 500 }, function () {
                 location.href = `/home/index.html`
             })
         })
