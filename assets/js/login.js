@@ -21,7 +21,8 @@ $(function () {
                 return "两次密码不一致"
             }
         }
-    });
+    });             
+    // ajax请求注册
     $(`.regiBox form`).on(`submit`, function (e) {
         e.preventDefault()
         let data = $(this).serialize()
@@ -34,6 +35,7 @@ $(function () {
             $(`.regiBox a`).click()
         })
     })
+    // ajax请求登录
     $(`.loginBox form`).on(`submit`, function (e) {
         e.preventDefault()
         let data = $(this).serialize()
@@ -44,7 +46,7 @@ $(function () {
             localStorage.setItem(`token`, res.data.token)
             layer.msg(res.data.message, { time: 500 }, function () {
                 location.href = `/home/index.html`
-            })
+            })                   
         })
     })
 });
