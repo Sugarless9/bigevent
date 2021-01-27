@@ -8,6 +8,7 @@
 iframe {
   width: 100%;
   height: 100%;
+  background-color: #f3f4f5;
 }
 .layui-body {
   overflow: hidden;
@@ -32,4 +33,7 @@ iframe {
   height: 60px;
   text-align: center;
   line-height: 60px;
+}
+.layui-footer{
+  text-align: center;
 }

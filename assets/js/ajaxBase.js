@@ -4,6 +4,7 @@ axios.defaults.baseURL = `http://api-breakingnews-web.itheima.net`
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
+    // config是配置对象
     if (config.url.indexOf(`/my`) !== -1) {
         config.headers.Authorization = localStorage.getItem(`token`)
     }
@@ -15,7 +16,6 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    console.log(response);
     if (response.data.status === 1 && response.data.message === "身份认证失败！") {
         localStorage.removeItem(`token`)
         location.href = `/home/login.html`
