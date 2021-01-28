@@ -59,15 +59,18 @@ $(function () {
             .toBlob((blob) => {
                 // 将 Canvas 画布上的内容，转化为文件对象
                 let fd = new FormData(this);
+                let id = localStorage.getItem(`id`)
                 fd.append("cover_img", blob);
                 fd.append("state", state);
-                axios.post("/my/article/add", fd).then(res => {
+                fd.append("Id", id);
+                axios.post("/my/article/edit", fd).then(res => {
                     console.log(res);
                     if (res.data.status !== 0) {
                         return layer.msg("发布文章失败");
                     }
                     layer.msg("发布成功");
                     this.reset()
+                    location.href = `/article/art_list.html`
                 });
             });
     })
