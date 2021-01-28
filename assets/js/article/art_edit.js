@@ -70,6 +70,7 @@ $(function () {
                     }
                     layer.msg("发布成功");
                     this.reset()
+                    localStorage.removeItem(`id`)
                     location.href = `/article/art_list.html`
                 });
             });
